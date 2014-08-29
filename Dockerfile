@@ -6,7 +6,7 @@ MAINTAINER Anthony Zboralski <z@belua.com>
 
 RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list
 RUN apt-get update 
-# RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade 
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade 
 
 # Install Ruby
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ruby ruby-dev
@@ -26,6 +26,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs npm
 RUN apt-get install -y nodejs-legacy 
 RUN apt-get install -y libpng-dev
 
+RUN npm install -g grunt 
+RUN npm install -g yo
 RUN npm install -g generator-htmlemail
 
 # Set environment variables.
